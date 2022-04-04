@@ -29,31 +29,44 @@ namespace BH.oM.HealthyBuildingMaterials
     [Description("This needs a description.")]
     public class HealthProductDeclaration : BHoMObject, IMaterialProperties
     {
-        [Description("The rate at which an appliance loses refrigerant, expressed in terms of the percentage of the equipment's full charge that is lost during the installation period. Due to the input being a domain range, use equal minimum and maximum values if needed.")]
-        public virtual double Installation { get; set; } = double.NaN;
+        [Description("Sample:You need to fill this in")]
 
-        [Description("The rate at which an appliance loses refrigerant, expressed in terms of the percentage of the equipment's full charge that is lost during the installation period. Due to the input being a domain range, use equal minimum and maximum values if needed.")]
-        public virtual string MasterFormat { get; set; } = "";
-        public virtual string Uniformats { get; set; } = "";
-        public virtual double CancerOrange { get; set; } = double.NaN;
-        public virtual double DevelopmentalOrange { get; set; } = double.NaN;
-        public virtual double EndocrineOrange { get; set; } = double.NaN;
-        public virtual double EyeIrritationOrange { get; set; } = double.NaN;
-        public virtual double MammalianOrange { get; set; } = double.NaN;
-        public virtual double MutagenicityOrange { get; set; } = double.NaN;
-        public virtual double NeurotoxicityOrange { get; set; } = double.NaN;
-        public virtual double OrganToxicantOrange { get; set; } = double.NaN;
-        public virtual double ReproductiveOrange { get; set; } = double.NaN;
-        public virtual double RespiratoryOrange { get; set; } = double.NaN;
-        public virtual double RespiratoryOccupationalOnlyOrange { get; set; } = double.NaN;
-        public virtual double SkinSensitizationOrange { get; set; } = double.NaN;
-        public virtual double CancerRed { get; set; } = double.NaN;
-        public virtual double CancerOccupationalOnlyRed { get; set; } = double.NaN;
-        public virtual double DevelopmentalRed { get; set; } = double.NaN;
-        public virtual double MutagenicityRed { get; set; } = double.NaN;
-        public virtual double PersistantBioaccumulativeToxicantRed { get; set; } = double.NaN;
-        public virtual double ReproductiveRed { get; set; } = double.NaN;
-        public virtual double RespiratoryRed { get; set; } = double.NaN;
-        public virtual double PersistantBioaccumulativeToxicantPurple { get; set; } = double.NaN;
+        // get; set; == accessibility, modify numbers. this would automatically create a metric 
+        public virtual HealthMetric HealthMetric { get; set; } = null;
+
+        [Description("Does this HPD have a certification")]
+
+        public virtual bool Certified { get; set; } = false;
+
+        [Description("The Type of Heatlh Product Declaration.")]
+
+        public virtual HPDType Type { get; set; } = HPDType.Undefined; 
+
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        //[Description("The Type of Environmental Product Declaration.")]
+        //public virtual EPDType Type { get; set; } = EPDType.Product;
+
+        //[Description("An Environmental Metric to describe the type and quantity of a specified metric. These metrics are used in all LCA calculations.")]
+        //public virtual List<EnvironmentalMetric> EnvironmentalMetric { get; set; } = new List<EnvironmentalMetric>();
+
+        //[Description("Note that any EPD that does not contain this parameter will not be evaluated. \n" +
+        //    "This metric is based on the declared unit of the reference EPD, i.e. a declared unit of kg refers to QuantityType of mass, a declared unit of m3 refers to a QuantityType of volume, etc. \n" +
+        //    "All data should be normalized to metric declared units before integration in the BHoM. \n" +
+        //    "The quantity type is a key metric for evaluation methods to function. \n" +
+        //    "This property determines how the material is to be evaluated, based on Mass, Volume, Area, Item, or Length.")]
+        //public virtual QuantityType QuantityType { get; set; } = QuantityType.Undefined;
+
+        //[Description("The number of units in reference to quantity type. Example, 1000 kg per unit quantityType of Mass.")]
+        //public virtual double QuantityTypeValue { get; set; } = 1;
+
+        /***************************************************/
+
+
+
+
+
     }
 }
