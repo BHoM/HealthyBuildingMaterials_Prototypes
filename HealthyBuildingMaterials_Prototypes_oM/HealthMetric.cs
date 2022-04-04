@@ -26,8 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.HealthyBuildingMaterials
 {
-    [Description("An Environmental Metric is used to store data regarding the environmental impacts of a given Environmental Product Declaration. \n"
-        + "An EPD can host multiple EnvironmentalMetrics to describe the overall impact which will be used in any LCA calculation.")]
+    [Description("I need to add a description here.")]
     public class HealthMetric : BHoMObject
     {
         /***************************************************/
