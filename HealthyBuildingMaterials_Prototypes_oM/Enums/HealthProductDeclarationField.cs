@@ -28,21 +28,21 @@ namespace BH.oM.HealthyBuildingMaterials
     public enum HealthProductDeclarationField
     {
         Undefined,
-        Cancer_Occupational,
+        CancerOccupational,
         Cancer,
         Developmental,
         Endocrine,
-        Eye_Irritation,
+        EyeIrritation,
         Mammalian,
         Mutagenicity,
         Neurotoxicity,
-        Organ_Toxicant,
-        PBT,
+        OrganToxicant,
+        PersistentBioaccumulativeToxic,
         Reproductive,
-        Respiratory_Occupational,
+        RespiratorOccupational,
         Respiratory,
-        Skin_Irritation,
-        Skin_Sensitization
+        SkinIrritation,
+        SkinSensitization
     }
 }
 

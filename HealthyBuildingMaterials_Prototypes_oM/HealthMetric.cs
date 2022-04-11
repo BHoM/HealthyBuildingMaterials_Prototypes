@@ -26,7 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.HealthyBuildingMaterials
 {
-    [Description("I need to add a description here.")]
+    [Description("These properties are how Quartz Database quantifies metrics for its materials. ")]
     public class HealthMetric : BHoMObject
     {
         /***************************************************/

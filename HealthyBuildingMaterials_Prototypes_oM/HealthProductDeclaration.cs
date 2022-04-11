@@ -40,33 +40,7 @@ namespace BH.oM.HealthyBuildingMaterials
 
         [Description("The Type of Heatlh Product Declaration.")]
 
-        public virtual HPDType Type { get; set; } = HPDType.Undefined; 
-
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        //[Description("The Type of Environmental Product Declaration.")]
-        //public virtual EPDType Type { get; set; } = EPDType.Product;
-
-        //[Description("An Environmental Metric to describe the type and quantity of a specified metric. These metrics are used in all LCA calculations.")]
-        //public virtual List<EnvironmentalMetric> EnvironmentalMetric { get; set; } = new List<EnvironmentalMetric>();
-
-        //[Description("Note that any EPD that does not contain this parameter will not be evaluated. \n" +
-        //    "This metric is based on the declared unit of the reference EPD, i.e. a declared unit of kg refers to QuantityType of mass, a declared unit of m3 refers to a QuantityType of volume, etc. \n" +
-        //    "All data should be normalized to metric declared units before integration in the BHoM. \n" +
-        //    "The quantity type is a key metric for evaluation methods to function. \n" +
-        //    "This property determines how the material is to be evaluated, based on Mass, Volume, Area, Item, or Length.")]
-        //public virtual QuantityType QuantityType { get; set; } = QuantityType.Undefined;
-
-        //[Description("The number of units in reference to quantity type. Example, 1000 kg per unit quantityType of Mass.")]
-        //public virtual double QuantityTypeValue { get; set; } = 1;
-
-        /***************************************************/
-
-
-
-
-
+        public virtual HPDType Type { get; set; } = HPDType.Undefined;
+        public virtual double Number { get; set; } = 1;
     }
 }
