@@ -29,18 +29,19 @@ namespace BH.oM.HealthyBuildingMaterials
     [Description("This needs a description.")]
     public class HealthProductDeclaration : BHoMObject, IMaterialProperties
     {
-        [Description("Sample:You need to fill this in")]
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        // get; set; == accessibility, modify numbers. this would automatically create a metric 
+        [Description("Sample:You need to fill this in")]
         public virtual HealthMetric HealthMetric { get; set; } = null;
 
         [Description("Does this HPD have a certification")]
-
         public virtual bool Certified { get; set; } = false;
 
         [Description("The Type of Heatlh Product Declaration.")]
-
         public virtual HPDType Type { get; set; } = HPDType.Undefined;
-        public virtual double Number { get; set; } = 1;
+
+        /***************************************************/
     }
 }
