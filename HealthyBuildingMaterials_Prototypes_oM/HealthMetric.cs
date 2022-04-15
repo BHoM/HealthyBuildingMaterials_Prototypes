@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,28 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using BH.oM.Base;
 using System.ComponentModel;
-using BH.oM.Physical.Materials;
 
 namespace BH.oM.HealthyBuildingMaterials
 {
-    [Description("This needs a description.")]
-    public class HealthProductDeclaration : BHoMObject, IMaterialProperties
+    [Description("These properties are how Quartz Database quantifies metrics for its materials. ")]
+    public class HealthMetric : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Sample:You need to fill this in")]
-        public virtual HealthMetric HealthMetric { get; set; } = null;
+        [Description("An Environmental Impact Metric filter used to classify the Environmental Metric that is being stored on the EPD.")]
+        public virtual HealthProductDeclarationField Field { get; set; } = HealthProductDeclarationField.Undefined;
 
-        [Description("Does this HPD have a certification")]
-        public virtual bool Certified { get; set; } = false;
+        [Description("Phase of life abbreviation for the scope of the EPD. A single EnvironmentalMetric can contain either a single Phase or a list of Phases i.e. A1, A2, A3.")]
+        public virtual List<HealthyBuildingColors> Colors { get; set; } = new List<HealthyBuildingColors>();
 
-        [Description("The Type of Heatlh Product Declaration.")]
-        public virtual HPDType Type { get; set; } = HPDType.Undefined;
+        [Description("The amount of the specified Field.")]
+        public virtual double Quantity { get; set; } = 0;
 
         /***************************************************/
     }
 }
+
+

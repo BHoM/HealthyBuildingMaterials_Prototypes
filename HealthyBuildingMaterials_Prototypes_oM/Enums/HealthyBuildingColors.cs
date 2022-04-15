@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,28 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
 using System.ComponentModel;
-using BH.oM.Physical.Materials;
 
 namespace BH.oM.HealthyBuildingMaterials
 {
-    [Description("This needs a description.")]
-    public class HealthProductDeclaration : BHoMObject, IMaterialProperties
+    [Description("This enum provides several evaluation colors that are commonly assessed within standard Health Product Declarations. You may provide single or multiple EPD Field selections for evaluation within the EvaluateEnvironmentalProductDeclaration compute method.")]
+    public enum HealthyBuildingColors
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("Sample:You need to fill this in")]
-        public virtual HealthMetric HealthMetric { get; set; } = null;
-
-        [Description("Does this HPD have a certification")]
-        public virtual bool Certified { get; set; } = false;
-
-        [Description("The Type of Heatlh Product Declaration.")]
-        public virtual HPDType Type { get; set; } = HPDType.Undefined;
-
-        /***************************************************/
+        Undefined,
+        Purple,
+        Red,
+        Orange
     }
 }
+
+
