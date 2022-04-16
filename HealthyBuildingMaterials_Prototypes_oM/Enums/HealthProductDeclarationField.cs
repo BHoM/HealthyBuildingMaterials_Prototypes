@@ -24,7 +24,7 @@ using System.ComponentModel;
 
 namespace BH.oM.HealthyBuildingMaterials
 {
-    [Description("This enum provides several evaluation fields that are commonly assessed within standard Healthy Product Declarations. You may provide single or multiple EPD Field selections for evaluation within the EvaluateEnvironmentalProductDeclaration compute method.")]
+    [Description("This enum provides several evaluation fields that are commonly assessed within standard Healthy Product Declarations.")]
     public enum HealthProductDeclarationField
     {
         Undefined,

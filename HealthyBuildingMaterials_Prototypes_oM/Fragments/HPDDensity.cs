@@ -20,29 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Base;
 using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.HealthyBuildingMaterials
+namespace BH.oM.HealthyBuildingMaterials.Fragments
 {
-    [Description("Specific healthy impact metrics composing an HPD.")]
-    public class HealthMetric : BHoMObject
+    [Description("A data fragment used to store Density values if provided from the HPD source. \n" +
+        "Density is a required property for all Evaluations of HPDs with Mass-QuantityType." +
+        "Density can be changed by the user by adding this fragment to an EPD. \n" +
+        "The user accepts responsibility for any changes beyond the given dataset information as not all HPDs will contain Density values.")]
+    public class HPDDensity : IFragment
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("An Health Impact Metric filter used to classify the Healthly Metric that is being stored on the HPD.")]
-        public virtual HealthProductDeclarationField Field { get; set; } = HealthProductDeclarationField.Undefined;
-
-        [Description("An HPD subcategorisation method describing the level of severity of a given metric field using colours")]
-        public virtual HealthyBuildingColors Colors { get; set; } = HealthyBuildingColors.Undefined;
-
-        [Description("The amount of the specified Field")]
-        public virtual double Quantity { get; set; } = 0;
-
-        /***************************************************/
+        [Density]
+        [Description("The material density in kg/m^3.")]
+        public virtual double Density { get; set; } = 0;
     }
 }
 
