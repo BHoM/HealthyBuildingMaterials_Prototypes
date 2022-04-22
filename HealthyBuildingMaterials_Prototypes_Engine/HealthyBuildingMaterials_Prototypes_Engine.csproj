@@ -52,15 +52,21 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Dimensional_oM">
-      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Dimensional_oM.dll</HintPath>
+      <HintPath>C:\ProgramData\BHoM\Assemblies\Dimensional_oM.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LifeCycleAssessment_oM">
+      <HintPath>C:\ProgramData\BHoM\Assemblies\LifeCycleAssessment_oM.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Matter_Engine">
-      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Matter_Engine.dll</HintPath>
+      <HintPath>C:\ProgramData\BHoM\Assemblies\Matter_Engine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="Physical_oM, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Physical_oM">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Physical_oM.dll</HintPath>
+      <HintPath>C:\ProgramData\BHoM\Assemblies\Physical_oM.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Reflection_Engine">
       <SpecificVersion>False</SpecificVersion>
@@ -89,7 +95,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Compute\EvaluateHPD.cs" />
+    <Compile Include="Compute\EvaluateHPDByMass.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

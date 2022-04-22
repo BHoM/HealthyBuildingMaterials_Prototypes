@@ -29,6 +29,8 @@ using BH.oM.HealthyBuildingMaterials.Fragments;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using BH.oM.LifeCycleAssessment;
+using System;
 
 namespace BH.Engine.HealthyBuildingMaterials
 {
@@ -39,47 +41,40 @@ namespace BH.Engine.HealthyBuildingMaterials
         /***************************************************/
 
         [Description("This method calculates the quantity of a supplied metric by querying Health Impact Metrics from the HPD materialFragment and the object's mass.")]
-        [Input("elementM", "An IElementM object used to calculate HPD metric.")]
+        [Input("HPD", "An HPD dataset.")]
+        [Input("masses", "A list of masses from the elements to be evaluated.")]
+        [Input("field", "The specific health metric field you would like to evaluate.")]
         [Output("quantity", "The total quantity of the desired metric based on the HPD.")]
-        public static double EvaluateHPD(IElementM elementM, HealthProductDeclarationField field = HealthProductDeclarationField.Undefined)
+        public static double EvaluateHPDByMass(BH.oM.LifeCycleAssessment.HealthProductDeclaration healthProductDeclartion, double mass, HealthProductDeclarationFieldOld field = HealthProductDeclarationFieldOld.Undefined)
         {
-            double volume = elementM.ISolidVolume();
-
-            List<IFragment> fragments = BH.Engine.Base.Query.GetAllFragments((IBHoMObject)elementM);
-
-            HPDDensity densityFragment = (HPDDensity)fragments.Where(x => typeof(HPDDensity).IsAssignableFrom(x.GetType())).FirstOrDefault();
-
-            double density = densityFragment.Density;
-
-            double mass = volume * density;
-
-            if (elementM == null)
+            if (healthProductDeclartion == null)
             {
-                BH.Engine.Base.Compute.RecordError("No IElementM was provided.");
+                BH.Engine.Base.Compute.RecordError("No HPD data was provided.");
+                return 0;
             }
 
-            BH.oM.Physical.Materials.MaterialComposition mc = elementM.IMaterialComposition();
+            // create a list of strings to check the field against
 
-            HealthProductDeclaration hpd = (HealthProductDeclaration)mc.Materials.Select(x => x.Properties.Where(y => y is HealthProductDeclaration).FirstOrDefault() as HealthProductDeclaration);
+            List<string> metricNames = Base.Query.GetAllPropertyFullNames(healthProductDeclartion).ToList();
 
-            // grab the metric quantity 
+            double metricValue = 0;
 
-            IEnumerable<HealthMetric> filteredMetrics = hpd.HealthMetric.Where(x => x.Field == field);
-            if (filteredMetrics.Count() == 0)
+            if (metricNames.Contains("BH.oM.LifeCycleAssessment.HealthProductDeclaration." + field.ToString()))
             {
-                BH.Engine.Base.Compute.RecordError("No metrics of the specified Field could be found.");
-                return double.NaN;
+                metricValue = (double)healthProductDeclartion.GetType().GetProperty(field.ToString()).GetValue(healthProductDeclartion);
+
+                if (double.IsNaN(metricValue))
+                {
+                    Engine.Base.Compute.RecordWarning("NaN value detected for the corresponding field selection.");
+                    metricValue = double.NaN;
+                }
+
+            } else
+            {
+                BH.Engine.Base.Compute.RecordError("No property could be found within the HPD dataset that matches the field selection.");
             }
 
-            if (filteredMetrics.Count() == 0)
-            {
-                BH.Engine.Base.Compute.RecordError("No Health Metrics could be found.");
-                return double.NaN;
-            }
-
-            double metricQuantity = filteredMetrics.Select(x => x.Quantity).FirstOrDefault();
-
-            return mass * metricQuantity;
+            return mass * metricValue;
         }
     }
 }
