@@ -52,14 +52,17 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Dimensional_oM">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\ProgramData\BHoM\Assemblies\Dimensional_oM.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="LifeCycleAssessment_oM">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\ProgramData\BHoM\Assemblies\LifeCycleAssessment_oM.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Matter_Engine">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\ProgramData\BHoM\Assemblies\Matter_Engine.dll</HintPath>
       <Private>False</Private>
     </Reference>
