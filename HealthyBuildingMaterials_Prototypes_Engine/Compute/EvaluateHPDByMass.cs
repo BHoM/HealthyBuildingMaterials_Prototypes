@@ -40,6 +40,8 @@ namespace BH.Engine.HealthyBuildingMaterials
         /****   Public Methods                          ****/
         /***************************************************/
 
+        // NOTE: this method references the HPD created in the LCA toolkit instead of the one included in this namespace and should be resolved. 
+
         [Description("This method calculates the quantity of a supplied metric by querying Health Impact Metrics from the HPD materialFragment and the object's mass.")]
         [Input("HPD", "An HPD dataset.")]
         [Input("masses", "A list of masses from the elements to be evaluated.")]
@@ -53,7 +55,7 @@ namespace BH.Engine.HealthyBuildingMaterials
                 return 0;
             }
 
-            // create a list of strings to check the field against
+            // create a list of properties as strings to check the field against for matching
 
             List<string> metricNames = Base.Query.GetAllPropertyFullNames(healthProductDeclartion).ToList();
 
@@ -68,12 +70,10 @@ namespace BH.Engine.HealthyBuildingMaterials
                     Engine.Base.Compute.RecordWarning($"NaN value detected for the corresponding field selection {field}.");
                     metricValue = double.NaN;
                 }
-
             } else
             {
                 BH.Engine.Base.Compute.RecordError("No property could be found within the HPD dataset that matches the field selection.");
             }
-
             return mass * metricValue;
         }
     }
