@@ -24,7 +24,7 @@ using System.ComponentModel;
 
 namespace BH.oM.HealthyBuildingMaterials
 {
-    [Description("This enum provides several evaluation colors that are commonly assessed within standard Health Product Declarations. You may provide single or multiple EPD Field selections for evaluation within the EvaluateEnvironmentalProductDeclaration compute method.")]
+    [Description("The declared scope of the HPD.")]
     public enum HPDType
     {
         Undefined, 

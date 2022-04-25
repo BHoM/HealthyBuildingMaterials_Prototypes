@@ -20,29 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Base;
 using System.ComponentModel;
 
 namespace BH.oM.HealthyBuildingMaterials
 {
-    [Description("Specific healthy impact metrics composing an HPD.")]
-    public class HealthMetric : BHoMObject
+    [Description("This enum provides several evaluation fields that are commonly assessed within standard Healthy Product Declarations.")]
+    public enum HealthProductDeclarationFieldOld
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("An Health Impact Metric filter used to classify the Healthly Metric that is being stored on the HPD.")]
-        public virtual HealthProductDeclarationField Field { get; set; } = HealthProductDeclarationField.Undefined;
-
-        [Description("An HPD subcategorisation method describing the level of severity of a given metric field using colours")]
-        public virtual HealthyBuildingColors Colors { get; set; } = HealthyBuildingColors.Undefined;
-
-        [Description("The amount of the specified Field")]
-        public virtual double Quantity { get; set; } = 0;
-
-        /***************************************************/
+        Undefined,
+        CancerRed,
+        CancerOrange,
+        CancerOccupationalOnlyRed,
+        ReproductiveOrange,
+        ReproductiveRed,
+        PersistantBioaccumulativeToxicantPurple,
+        PersistantBioaccumulativeToxicantRed
     }
 }
 

@@ -23,23 +23,24 @@
 using BH.oM.Base;
 using System.ComponentModel;
 using BH.oM.Physical.Materials;
+using System.Collections.Generic;
 
 namespace BH.oM.HealthyBuildingMaterials
 {
-    [Description("This needs a description.")]
+    [Description("BHoM Healthly Product Declarations are a currated list of properties which define an HPD that can be integrated within standard workflows. More information on the HPD methodology along with all details can be found on the organisation's website 'https://www.hpd-collaborative.org/hpd-open-standard-all-versions/'")]
     public class HealthProductDeclaration : BHoMObject, IMaterialProperties
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Sample:You need to fill this in")]
-        public virtual HealthMetric HealthMetric { get; set; } = null;
+        [Description("Container for all health metric data")]
+        public virtual List<HealthMetric> HealthMetric { get; set; } = null;
 
-        [Description("Does this HPD have a certification")]
+        [Description("Does this HPD have a certification?")]
         public virtual bool Certified { get; set; } = false;
 
-        [Description("The Type of Heatlh Product Declaration.")]
+        [Description("The Type of Health Product Declaration")]
         public virtual HPDType Type { get; set; } = HPDType.Undefined;
 
         /***************************************************/

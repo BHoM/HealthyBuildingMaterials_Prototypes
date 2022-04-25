@@ -44,10 +44,14 @@
       <HintPath>C:\ProgramData\BHoM\Assemblies\Geometry_oM.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
     <Reference Include="Physical_oM">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\ProgramData\BHoM\Assemblies\Physical_oM.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Quantities_oM">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ProgramData\BHoM\Assemblies\Quantities_oM.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -60,9 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\HealthProductDeclarationFieldOld.cs" />
     <Compile Include="Enums\HPDType.cs" />
     <Compile Include="Enums\HealthyBuildingColors.cs" />
     <Compile Include="Enums\HealthProductDeclarationField.cs" />
+    <Compile Include="Fragments\HPDDensity.cs" />
     <Compile Include="HealthMetric.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HealthProductDeclaration.cs" />
