@@ -68,7 +68,7 @@ namespace BH.Engine.HealthyBuildingMaterials
                 if (double.IsNaN(metricValue))
                 {
                     Engine.Base.Compute.RecordWarning($"NaN value detected for the corresponding field selection {field}.");
-                    metricValue = double.NaN;
+                    metricValue = 0;
                 }
             } else
             {
