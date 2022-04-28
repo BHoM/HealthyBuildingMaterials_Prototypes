@@ -33,8 +33,8 @@ namespace BH.oM.HealthyBuildingMaterials
         CancerOccupationalOnlyRed,
         ReproductiveOrange,
         ReproductiveRed,
-        PersistantBioaccumulativeToxicantPurple,
-        PersistantBioaccumulativeToxicantRed
+        PersistentBioaccumulativeToxicantPurple,
+        PersistentBioaccumulativeToxicantRed
     }
 }
 
