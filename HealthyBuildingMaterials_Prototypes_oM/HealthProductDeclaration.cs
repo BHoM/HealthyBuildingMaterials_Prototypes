@@ -34,14 +34,60 @@ namespace BH.oM.HealthyBuildingMaterials
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Container for all health metric data")]
-        public virtual List<HealthMetric> HealthMetric { get; set; } = null;
+        [Description("An HPD subcategorisation method describing the level of severity of a given metric field using colours")]
+        public virtual HealthyBuildingColors Colors { get; set; } = HealthyBuildingColors.Undefined;
 
         [Description("Does this HPD have a certification?")]
         public virtual bool Certified { get; set; } = false;
 
         [Description("The Type of Health Product Declaration")]
         public virtual HPDType Type { get; set; } = HPDType.Undefined;
+
+        [Description("Description required here.")]
+        public virtual double CancerOccupational { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double Cancer { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double Developmental { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double Endocrine { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double EyeIrritation { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double Mammalian { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double Mutagenicity { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double Neurotoxicity { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double OrganToxicant { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double PersistentBioaccumulativeToxic { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double Reproductive { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double ReprodRespiratorOccupationaluctive { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double Respiratory { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double SkinIrritation { get; set; } = double.NaN;
+
+        [Description("Description required here.")]
+        public virtual double SkinSensitization { get; set; } = double.NaN;
+        
 
         /***************************************************/
     }
